@@ -12,24 +12,24 @@ class CarrinhoDeCompras:
         self.total += valor
 
         print(
-            f'{list(self.compras.keys())[-1]} foi adicionado ao seu carrinho.')
+            f'{list(self.compras.keys())[-1]} has been added to your cart.')
         print(f'Seu total agora é de: {self.total:.2f}R$')
         print()
 
     def remov_item(self, item):
-        print(f'{list(self.compras.keys())[-1]} foi removido do seu carrinho.')
+        print(f'{list(self.compras.keys())[-1]} has been removed from your cart.')
         print()
         self.total -= self.compras[item]
         del self.compras[item]
 
     def finalizar_compra(self):
-        print('Finalizando compra...')  # dps add sleep
+        print('Finalizing purchase...')  # dps add sleep
         time.sleep(1)
 
-        print(f'Valor total da compra: {self.total:.2f}R$')
+        print(f'Total purchase amount: {self.total:.2f}R$')
         pagamento = str(self.total) + 'R$'
 
         with open('data_compra.txt', 'a+') as f:
-            f.write(f'Compra do usuario {self.user}, ' + str(pagamento) + '\n')
+            f.write(f'User purchase {self.user}, ' + str(pagamento) + '\n')
 
         return pagamento
