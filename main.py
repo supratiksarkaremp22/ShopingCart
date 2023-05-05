@@ -1,32 +1,32 @@
-from cliente import Cliente
+from cliente import Client
 from carrinho import CarrinhoDeCompras
 import time
 import os
 
-user = input('Digite seu usuário: ')
-senha = input('Digite sua senha: ')
+user = input('Type your user: ')
+senha = input('Type your password: ')
 
 
 with open('data_user.txt', 'a+') as f:
     f.seek(0)
 
-    msg = 'Estamos checando seu cadastro'
+    msg = 'We are checking your register'
     for i in range(3):
         msg += '.'
         print(msg)
         time.sleep(1)
 
     if ('User: ' + user + ', ' + 'Senha: ' + senha + '\n') in f.readlines():
-        print('Login realizado com sucesso.')
-        print('Carregando a loja...')
+        print('Login done successfully.')
+        print('Loading store...')
         print()
         # print()
         time.sleep(2)
         f.close()
     else:
         f.read()
-        print('Não achamos seu cadastro, deseja criar um com as informações dadas?')
-        print('Digite "sim" caso queira, ou "não" para finalizar o programa.')
+        print('We do not accept your cadastro, do you want to raise one with the information given?')
+        print('Type "yes" if you want, or "não" to end the program.')
         s_n = input()
         if s_n.lower() == 'não' or s_n.lower() == 'nao':
             exit()
@@ -63,28 +63,28 @@ cliente_1 = Cliente()
 
 
 def compra():
-    # "INTERFACE" de compras, vai mostrar os itens ao usuário, onde ele pode
-    # adicionar item, remover item, ou finalizar compra
-    # se o valor do carrinho for maior que o saldo do usuário, não fecha a compra.
+    # "INTERFACE" of purchases, it will show the items to the user, where he can
+    # add item, remove item, or checkout
+    # If the value of the car is greater than the user's balance, no date of purchase.
 
-    # for key, value in itens.items():  # lista os itens
+    # for key, value in items.items(): # list the items
     #     print(f'{key} custa {value:.2f}R$')
     # print()
     carrinho = CarrinhoDeCompras(user)
 
     while True:
-        print('Digite qual item você quer comprar, caso você não queira comprar agora, aperte ENTER.')
+        print('Type which item you want to buy, if you don't want to buy now, press ENTER.')
         item = input()
 
         if item.upper() in itens.keys():
             print()
             carrinho.add_item(item, itens[item.upper()])
 
-        print('Para continuar comprando --> [1]')
-        print('Para remover algum item --> [2]')
-        print('Para finalizar compra --> [3]')
-        print('Para ver carrinho --> [4]')
-        print('Para sair --> [5]')
+        print('To continue shopping --> [1]')
+        print('To remove any item --> [2]')
+        print('To finalize purchase --> [3]')
+        print('to see carrinho --> [4]')
+        print('to go out --> [5]')
         decisao = input()
         print()
 
