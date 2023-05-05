@@ -7,15 +7,15 @@ class Cliente:
 
     def depositar(self):
         while True:
-            valor = input('Qual a quantia que você deseja depositar? ')
+            valor = input('What amount do you want to deposit?')
             try:
                 valor = int(valor)
                 self.saldo += valor
 
-                print('Realizando depósito...')
+                print('Making deposit...')
                 time.sleep(1)
-                print(f'{valor:.2f}R$ foram depositados na sua conta.')
+                print(f'{valor:.2f}R$ is deposited in your account.')
                 break
             except:
-                print('Digite apenas números válidos.')
+                print('Enter only valid numbers.')
                 continue
