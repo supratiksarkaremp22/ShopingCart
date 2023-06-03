@@ -1,14 +1,14 @@
 import time
 
 
-class CarrinhoDeCompras:
+class ShoppingCart:
     def __init__(self, user):
         self.compras = {}
         self.total = 0
         self.user = user
 
-    def add_item(self, item, valor):
-        self.compras[item] = valor
+    def add_item(self, item, worth):
+        self.compras[item] = worth
         self.total += valor
 
         print(
