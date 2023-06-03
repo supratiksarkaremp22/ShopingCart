@@ -28,14 +28,14 @@ with open('data_user.txt', 'a+') as f:
         print('We do not accept your cadastro, do you want to raise one with the information given?')
         print('Type "yes" if you want, or "não" to end the program.')
         s_n = input()
-        if s_n.lower() == 'não' or s_n.lower() == 'nao':
+        if s_n.lower() == 'nothing' or s_n.lower() == 'nao':
             exit()
         else:
             f.write('User: ' + user)
             f.write(', ')
             f.write('Senha: ' + senha + '\n')
-            print('Seu cadastro foi realizado.')
-            print('Carregando a loja...')
+            print('Your cadastre was made.')
+            print('Loading to store...')
             print()
             # print()
             time.sleep(2)
@@ -95,29 +95,29 @@ def compra():
             continue
         elif decisao == '2':
             if len(carrinho.compras) == 0:
-                print('Você não possui itens no momento.')
+                print('You don't have items at the moment.')
                 break
 
-            print('Seus itens no momento são: ')
+            print('Their items at the moment are: ')
             for key in carrinho.compras.keys():
                 print('-' + key)
-            print('Digite o nome do item que você quer remover.')
+            print('Type the name of the item you want to remove.')
             i_remov = input()
             carrinho.remov_item(i_remov)
             continue
         elif decisao == '3':
             if cliente_1.saldo < carrinho.total:
-                print('Saldo insuficiente. Remova algum item ou deposite dinheiro.')
+                print('Insufficient balance. Remove some item or deposit money.')
                 continue
 
             cliente_1.saldo -= carrinho.total
             carrinho.finalizar_compra()
-            # tem que ver como eu vou fazer pro cliente pagar
-            print(f'Obrigado por comprar conosco, {user}!')
+            # I have to see how eu vou fazer pro client pay
+            print(f'Forced to buy conosco, {user}!')
             break
 
         elif decisao == '4':
-            for key, value in carrinho.compras.items():  # lista os itens
+            for key, value in carrinho.compras.items():  # list the items
                 print(f'{key}, {value:.2f}R$')
             print()
             continue
@@ -125,24 +125,24 @@ def compra():
             break
 
 
-# cliente_1 = Cliente()
+# cliente_1 = Client()
 
 while True:
     print(
         f"""
-Saudações {user}! Bem-vindo à loja, selecione o que você quer fazer:
-Seu saldo é de: {cliente_1.saldo:.2f}R$
-    """
+Saudações {user}! Come home, select what you want to do:
+His balance is: {client_1.balance:.2f}R$
+"""
     )
 
-    print('Começar a comprar --> [1]')
-    print('Depositar dinheiro --> [2]')
+    print('start shopping --> [1]')
+    print('deposit money --> [2]')
     print('Sair --> [3]')
     choice = input()
     print()
 
     if choice == '1':
-        for key, value in itens.items():  # lista os itens
+        for key, value in itens.items():  # list the items
             print(f'{key} custa {value:.2f}R$')
         print()
         compra()
@@ -153,5 +153,5 @@ Seu saldo é de: {cliente_1.saldo:.2f}R$
         continue
 
     elif choice == '3':
-        print('Obrigado por visitar nossa loja!')
+        print('Obliged to visit our loja!')
         exit()
