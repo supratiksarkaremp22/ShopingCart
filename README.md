@@ -1,6 +1,6 @@
 # E-Commerce
 
-- No frameworks used. Only Python 3 ( terminal application )
+- Only Python 3 ( terminal application )
 
 ## Simple E-Commerce application with the following features:
 
