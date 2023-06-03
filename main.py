@@ -1,5 +1,5 @@
 from cliente import Client
-from carrinho import CarrinhoDeCompras
+from carrinho import ShoppingCart
 import time
 import os
 
@@ -153,5 +153,5 @@ His balance is: {client_1.balance:.2f}R$
         continue
 
     elif choice == '3':
-        print('Obliged to visit our loja!')
+        print('Obliged to visit our store!')
         exit()
